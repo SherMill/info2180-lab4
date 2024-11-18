@@ -1,5 +1,6 @@
 document.getElementById('searchButton').addEventListener('click', function() {
-    fetch('superheroes.php')
+    var input = document.getElementById('searchInput').value;
+    fetch('superheroes.php?search=' + encodeURIComponent(input))
         .then(response => response.json())
         .then(data => {
             alert(JSON.stringify(data));
