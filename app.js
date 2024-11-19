@@ -1,5 +1,5 @@
 function searchSuperhero() {
-    var query = document.getElementById('searchField').value;
+    var query = document.getElementById('searchInput').value;
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'superheroes.php?query=' + encodeURIComponent(query), true);
     xhr.onload = function() {
