@@ -64,18 +64,10 @@ $superheroes = [
 ];
 
 $search = $_GET['search'] ?? '';
-
-$filteredHeroes = array_filter($superheroes, function($hero) use ($search) {
+$result = array_filter($superheroes, function ($hero) use ($search) {
     return stripos($hero['name'], $search) !== false || stripos($hero['alias'], $search) !== false;
 });
 
-echo json_encode($filteredHeroes);
+header('Content-Type: application/json');
+echo json_encode(array_values($result));
 ?>
-
-?>
-
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>

@@ -1,4 +1,27 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin: 0;
 }
 
+#searchInput {
+    width: 300px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+#searchButton {
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#result {
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    list-style-type: none;
+}
