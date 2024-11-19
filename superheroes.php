@@ -65,8 +65,15 @@ $superheroes = [
 
 ?>
 
+
+$query = isset($_GET['query']) ? $_GET['query'] : '';
+
+$filteredHeroes = array_filter($superheroes, function($hero) use ($query) {
+    return stripos($hero['alias'], $query) !== false;
+});
+?>
 <ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
+<?php foreach ($filteredHeroes as $superhero): ?>
+    <li><?= $superhero['alias']; ?></li>
 <?php endforeach; ?>
 </ul>
