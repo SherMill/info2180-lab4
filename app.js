@@ -1,9 +1,13 @@
-document.getElementById('searchButton').addEventListener('click', function() {
-    var input = document.getElementById('searchInput').value;
-    fetch('superheroes.php?search=' + encodeURIComponent(input))
-        .then(response => response.json())
-        .then(data => {
-            alert(JSON.stringify(data));
-        })
-        .catch(error => console.error('Error:', error));
-});
+function searchSuperhero() {
+    var query = document.getElementById('searchField').value;
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'superheroes.php?query=' + encodeURIComponent(query), true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            document.getElementById('result').innerHTML = xhr.responseText;
+        } else {
+            alert('Request failed. Returned status of ' + xhr.status);
+        }
+    };
+    xhr.send();
+}
